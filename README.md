@@ -94,24 +94,7 @@ This repository demonstrates how to set up and run end-to-end tests using Cucumb
 - cucumber.js: Configures Cucumber settings.
 
 
-## CI/CD Integration
-
-When integrating with Jenkins or other CI/CD tools(ensure cucumber report plugin is installed on jenkins):
-1. Publish HTML Reports:
-```bash
-   post {
-    always {
-        script {
-            if (fileExists('reports/cucumber-report.json')) {
-                cucumber 'reports/cucumber-report.json'
-            } else {
-                echo "Cucumber JSON not found"
-            }
-        }
-    }
-   }
-   ```
-This configuration saves the report as a build artifact in Jenkins.
+## Docker Integration
 
 Additional Notes
 - Installing with Docker:
