@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --require-module ts-node/register --require ./tests/ui/support/hooks.ts --require ./tests/ui/step_definitions/*.ts --format progress-bar ./tests/ui/features/*.feature",
+    "test": "cucumber-js --require-module ts-node/register --require ./tests/ui/support/hooks.ts --require ./tests/ui/step_definitions --format progress ./tests/ui/features",
     "test:chrome": "cross-env BROWSER=chromium npm run test",
     "test:firefox": "cross-env BROWSER=firefox npm run test",
     "test:webkit": "cross-env BROWSER=webkit npm run test",

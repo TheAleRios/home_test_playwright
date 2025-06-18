@@ -99,7 +99,7 @@ This repository demonstrates how to set up and run end-to-end tests using Cucumb
 Additional Notes
 - Installing with Docker:
 
-Docker work is aimed to improve data managament
+Docker work is aimed to improve environment setup
 ```bash
    docker build -t playwright-tests .
    ```
@@ -108,7 +108,7 @@ This step installs the container.
 ```bash
    docker run --rm playwright-tests
    ```
-This step runs all the tests in the conteiner.
+This step runs all the tests in the container.
 
 ## Reports
 After the test completes, the user can run:
