@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    image: automaticbytes/demo-app
+    ports:
+      - "3100:3100"
+    networks:
+      - testnet
+
+  playwright-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - app
+    networks:
+      - testnet
+    environment:
+      - BASE_URL=http://host.docker.internal:3100
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: >
+      sh -c "
+        echo 'Waiting http://app:3100 to be ready...' &&
+        until curl -s http://app:3100; do sleep 2; done &&
+        npx cross-env BROWSER=chromium npm run test
+      "
+
+networks:
+  testnet:

@@ -1,6 +1,7 @@
 export class checkoutPage {
   // Url and selectors
-  static readonly url: string = 'http://localhost:3100/checkout';
+  static readonly baseUrl = process.env.BASE_URL || 'http://localhost:3100';
+  static readonly url = `${checkoutPage.baseUrl}/checkout`;
   static readonly selectors = {
     fullnameField: 'input[id="fname"]',
     emailField: 'input[id="email"]',

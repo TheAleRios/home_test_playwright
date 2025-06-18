@@ -1,6 +1,7 @@
 export class loginPage {
     // Url and selectors
-    static readonly url: string = 'http://localhost:3100/login';
+    static readonly baseUrl = process.env.BASE_URL || 'http://localhost:3100';
+    static readonly url = `${loginPage.baseUrl}/login`;
     static readonly selectors = {
       usernameField: 'input[id="username"]',
       passwordField: 'input[id="password"]',

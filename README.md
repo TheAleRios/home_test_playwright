@@ -97,18 +97,14 @@ This repository demonstrates how to set up and run end-to-end tests using Cucumb
 ## Docker Integration
 
 Additional Notes
-- Installing with Docker:
+- Running test using Docker and Docker compose:
 
-Docker work is aimed to improve environment setup
+Docker compose work is aimed to improve environment setup. A docker-compose.yml file was created to ensure running tests on a Docker container
 ```bash
-   docker build -t playwright-tests .
+   docker-compose up --build
    ```
-This step installs the container.
+This step installs the docker containers(both demo-app and playwright tests containers) and run the tests inside the container.
 
-```bash
-   docker run --rm playwright-tests
-   ```
-This step runs all the tests in the container.
 
 ## Reports
 After the test completes, the user can run:

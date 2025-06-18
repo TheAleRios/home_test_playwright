@@ -1,4 +1,5 @@
-FROM mcr.microsoft.com/playwright:v1.44.1-jammy
+FROM mcr.microsoft.com/playwright:v1.53.0-jammy
+ENV DOCKER=true
 
 WORKDIR /app
 
@@ -10,4 +11,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["npx", "cross-env", "BROWSER=chromium", "npm", "run", "test"]
+CMD ["npm", "run", "test"]

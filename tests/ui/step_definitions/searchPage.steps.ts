@@ -7,12 +7,14 @@ Given('user goes to the search page',{ timeout: 20000 }, async function () {
   await page.goto(searchPage.url);
 });
 
-When('user searches for {string}', async function (searchWord: string) {
+When('user searches for {string}', { timeout: 5000 }, async function (searchWord: string) {
+  await page.waitForSelector(searchPage.selectors.searchInput, { state: 'visible' });
   await page.fill(searchPage.selectors.searchInput, searchWord);
 
 });
 
-When('user click on search button', async function () {
+When('user click on search button', { timeout: 5000 }, async function () {
+  await page.waitForSelector(searchPage.selectors.searchButton, { state: 'visible' });
   await page.click(searchPage.selectors.searchButton);
 });
 

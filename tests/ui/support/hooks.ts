@@ -3,6 +3,7 @@ import { chromium, firefox, webkit, Browser, BrowserContext, Page } from 'playwr
 import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+import isCI from 'is-ci';
 
 let browser: Browser;
 let context: BrowserContext;
@@ -18,20 +19,21 @@ class CustomWorld extends World {
 
 setWorldConstructor(CustomWorld);
 
-
 BeforeAll(async () => {
 
   const browserType = process.env.BROWSER || 'chromium';
+  const isDocker = process.env.DOCKER === 'true';
+  const headless = isCI || isDocker;
 
   switch (browserType) {
     case 'firefox':
-      browser = await firefox.launch({ headless: false });
+      browser = await firefox.launch({ headless});
       break;
     case 'webkit':
-      browser = await webkit.launch({ headless: false });
+      browser = await webkit.launch({ headless});
       break;
     default:
-      browser = await chromium.launch({ headless: false });
+      browser = await chromium.launch({ headless});
   }
   
 });
